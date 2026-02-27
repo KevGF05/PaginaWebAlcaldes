@@ -1,0 +1,54 @@
+/* Estilo general del fondo del modal */
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
+/* Contenido del modal centrado */
+.modal-contenido {
+  background-color: #fff;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Botón cerrar */
+.modal .cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+
+.modal img.imagen-modal {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.info-section {
+  max-height: 70px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.info-section.expandido {
+  max-height: 1000px; /* suficiente para mostrar todo */
+  overflow: visible;
+}
+

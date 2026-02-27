@@ -1,0 +1,98 @@
+/* FORMULARIO DE INSCRIPCIÓN A EVENTOS */
+.formulario-evento {
+  background-color: #fff3e0; /* Color suave que armoniza con la paleta */
+  padding: 40px 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.titulo-formulario {
+  text-align: center;
+  color: #f57c00;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-evento {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-evento label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.form-evento input[type="text"],
+.form-evento input[type="email"],
+.form-evento select {
+  padding: 10px 14px;
+  border: 1.5px solid #ffa726;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff8e1;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-evento input:focus,
+.form-evento select:focus {
+  border-color: #fb8c00;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 138, 0, 0.3);
+}
+
+.form-evento input[type="submit"] {
+  background-color: #f9a825;
+  color: white;
+  border: 2px solid #f57c00;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(245, 124, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-evento input[type="submit"]:hover {
+  background-color: #fbc02d;
+  box-shadow: 0 6px 12px rgba(245, 124, 0, 0.5);
+}
+
+.form-evento input[type="tel"] {
+  padding: 10px 14px;
+  border: 1.5px solid #ffa726;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff8e1;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-evento input[type="tel"]:focus {
+  border-color: #fb8c00;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 138, 0, 0.3);
+}
+
+/* Estilos adicionales específicos para login */
+.form-evento input[type="password"] {
+  padding: 10px 14px;
+  border: 1.5px solid #ffa726;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff8e1;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-evento input[type="password"]:focus {
+  border-color: #fb8c00;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 138, 0, 0.3);
+}
+

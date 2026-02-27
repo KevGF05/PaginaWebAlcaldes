@@ -1,0 +1,514 @@
+/*NAVEGADOR*/
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+/*ENCABEZADO */
+.encabezado {
+  background-image: url('../Imagenes/Encabezado/ENCABEZADO.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+  color: white;
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  right: 5px; 
+  width: 180px; 
+  height: auto;
+  z-index: 2;
+}
+
+/*Titulo y subtitulos de pagina*/
+.titulo-container {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: white;
+}
+
+.titulo-principal {
+  color: orange;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  color: darkorange;
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: italic;
+  text-shadow: 1.5px 1.5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.contenido-texto h1 {
+   margin: 0;
+  font-size: 3.5em;
+}
+
+.contenido-texto h2 {
+  margin-top: 10px;
+  font-size: 1.7em;
+}
+/*Linea separadora de secciones*/
+.linea-separadora {
+  width: 93%; 
+  height: 4px;
+  margin: 40px auto; 
+  background: linear-gradient(to right, #ffcc80, #fb8c00, #e65100); 
+  border-radius: 2px;
+}
+
+/* Barra de navegación */
+.barra-menu {
+  background: linear-gradient(135deg, #f9a825, #f57c00); 
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+ 
+.barra-menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.barra-menu li {
+   margin: 0 20px; 
+}
+
+.barra-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;  
+  font-family: 'Poppins', sans-serif; 
+  font-size: 16px;  
+  transition: all 0.3s ease;  
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);  
+}
+
+.barra-menu a:hover {
+ color: #f9a825;  
+  background-color: rgba(255, 255, 255, 0.1);  
+  border-radius: 5px;  
+  padding: 5px 10px;  
+}
+
+/* Línea separadora en barra de menu*/
+.separador {
+  width: 2px;
+   height: 20px;
+   background-color: #f57c00;
+   margin: 0 20px;  
+   opacity: 0.8;  
+   }
+
+/*ALCALDE ACTUAL*/
+header {
+  padding: 20px;
+  background-color: #2c3e50;
+  color: white;
+}
+
+.contenedor-alcalde {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin: 30px;
+}
+.foto-alcalde {
+  width: 300px; 
+  height: 300px;
+  object-fit: cover;
+  margin-right: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.info-alcalde h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+ .info-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  padding: 0 10px; 
+  margin-top: 10px;
+  margin-bottom: 15px
+}
+
+.info-section.expandido {
+  max-height: 500px; 
+  padding: 10px;
+}
+/*BOTON*/
+button {
+  margin-top: 15px;
+  background-color: #f9a825; 
+  color: white; 
+  border: 2px solid #f57c00; 
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(245, 124, 0, 0.4); 
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #fbc02d; 
+  box-shadow: 0 6px 12px rgba(245, 124, 0, 0.5);
+}
+
+/* TARJETAS DE ALCALDES HISTÓRICOS */
+.tarjetas-alcaldes {
+ display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 30px auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.tarjeta {
+   width: 23%;
+  height: 455px;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  padding-bottom: 60px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tarjeta h4 {
+   width: 100%;
+  margin: 12px 0 6px;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.tarjeta p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #555;
+  text-align: left;
+  width: 100%;
+}
+
+.tarjeta .decoracion {
+ height: 3px;
+  background-color: #f57c00;
+  border-radius: 2px;
+  margin: 4px 0 10px; 
+  width: 40%; 
+}
+
+.tarjeta button {
+   background-color: #f9a825;
+  color: white;
+  border: 2px solid #f57c00;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(245, 124, 0, 0.4);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+.tarjeta button:hover {
+  background-color: #fbc02d;
+  box-shadow: 0 6px 12px rgba(245, 124, 0, 0.5);
+}
+
+/*Footer pie de pagina general*/
+.footer {
+  background-color: #ff7f00; 
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer .frase {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.footer .escudo {
+  width: 100px;
+  height: auto;
+  margin: 12px 0;
+ filter: drop-shadow(0 0 0 white); 
+}
+
+.footer .copy {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* VENTANAS EMERGENTES */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+
+.modal-contenido {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 90%;
+  max-height: 80vh;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
+  word-wrap: break-word;
+  white-space: normal;
+  margin: 0; 
+}
+
+
+.imagen-modal {
+  max-width: 90vw;
+  max-height: 80vh;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #911919;
+  cursor: pointer;
+}
+
+.cerrar:hover {
+  color: #ff0000;
+}
+
+/*DISPOSITIVOS MEDIANOS*/
+@media (max-width: 768px) {
+  .contenido-texto h1 {
+    font-size: 2em;
+  }
+
+  .contenido-texto h2 {
+    font-size: 1.2em;
+  }
+
+  .barra-menu ul {
+    flex-direction: column;
+  }
+
+  .separador {
+    display: none;
+  }
+
+  .contenedor-alcalde {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto-alcalde {
+    margin: 0 auto 20px auto;
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo {
+    width: 60px;
+    top: 20px;
+   right: 20px;
+  }
+
+  .contenido-texto {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .tarjetas-alcaldes {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .tarjeta {
+    width: 48%;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+  }
+  
+  .tarjeta img {
+    height: 150px; 
+  }
+
+  .tarjeta h4 {
+    font-size: 1em;
+  }
+
+  .tarjeta p {
+    font-size: 0.9em;
+  }
+
+  .tarjeta .decoracion {
+    width: 40%;
+  }
+
+  .tarjeta button {
+    bottom: 5px;
+    right: 5px;
+    padding: 6px 12px;
+  }
+  .footer {
+    padding: 15px 10px;
+  }
+
+  .footer .frase {
+    font-size: 1.1rem;
+  }
+
+  .footer .escudo {
+    width: 60px;
+  }
+
+  .footer .copy {
+    font-size: 0.9rem;
+  }
+}
+
+/*DISPOSITIVOS PEQUEÑOS*/
+@media (max-width: 480px) {
+  .contenido-texto h1 {
+    font-size: 1.5em;
+  }
+
+  .contenido-texto {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .logo {
+    top: 15px;
+    right: 15px;
+    width: 50px;
+  }
+
+  .contenido-texto h2 {
+    font-size: 1em;
+  }
+
+  .barra-menu li {
+    margin: 10px 0;
+  }
+
+  .contenedor-alcalde {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9em;
+  }
+  .tarjetas-alcaldes {
+    margin: 15px auto;
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .tarjeta {
+    width: 100%;
+    max-width: 300px; 
+    padding: 10px;
+  }
+
+  .tarjeta img {
+    height: 120px; 
+  }
+
+  .tarjeta h4 {
+    font-size: 0.9em;
+  }
+
+  .tarjeta p {
+    font-size: 0.85em;
+  }
+
+  .tarjeta .decoracion {
+    width: 30%;
+  }
+
+  .tarjeta button {
+    bottom: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    font-size: 0.85em;
+  }
+
+  .footer .frase {
+    font-size: 1rem;
+  }
+
+  .footer .escudo {
+    width: 50px;
+  }
+
+  .footer .copy {
+    font-size: 0.8rem;
+  }
+}
+

@@ -1,0 +1,109 @@
+/* Estilos generales */
+.eventos-container {
+    text-align: center;
+    padding: 50px 10px;
+    background-color: #f4f4f4;
+}
+
+.eventos-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de los eventos */
+.eventos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Estilos para cada evento */
+.evento {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.evento:hover {
+    transform: scale(1.05);
+}
+
+.evento-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 200px;
+}
+
+.evento-info {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.evento-info h5 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.evento-info h5 a {
+    text-decoration: none;
+    color: #f57c00;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.evento-info h5 a:hover {
+    color: #ff9800;
+}
+
+.evento-hora-lugar {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.inscribirse-btn {
+    padding: 10px 20px;
+    background-color: #f57c00;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.inscribirse-btn:hover {
+    background-color: #ff9800;
+}
+
+.evento-fecha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.evento-dia {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f57c00;
+}
+
+.evento-mes {
+    font-size: 1.2rem;
+    color: #777;
+    text-transform: uppercase;
+    margin-left: 10px;
+}

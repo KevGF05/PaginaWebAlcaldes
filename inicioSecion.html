@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/EstilosGenerales.css" />
+    <link rel="stylesheet" href="css/FormularioEvento.css" />
+    <title>Museo</title>
+  </head>
+
+  <body>
+    <!-- Encabezado con imagen -->
+    <header class="encabezado">
+      <div class="contenido-encabezado">
+        <a href="inicioSecion.html">
+          <img
+            src="Imagenes/Encabezado/LogoMuni.png"
+            alt="Logo"
+            class="logo"
+            style="cursor: pointer"
+          />
+        </a>
+      </div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="barra-menu">
+      <ul>
+        <li><a href="PaginaPrincipal.php">Inicio</a></li>
+        <div class="separador"></div>
+        <li><a href="#" onclick="abrirModal('Intro')">Introducción</a></li>
+        <div class="separador"></div>
+        <a href="galeria.php">Galería</a>
+        <div class="separador"></div>
+        <a href="Contacto.html">Contactos</a>
+        <div class="inscriccion separador"></div>
+        <a href="Evento.php">Eventos</a>
+      </ul>
+    </nav>
+
+    <!-- Formulario de inicio de sesión -->
+    <section class="formulario-evento">
+      <h2 class="titulo-formulario">Iniciar Sesión</h2>
+      <form id="loginForm" class="form-evento">
+        <label for="usuario">Usuario:</label>
+        <input
+          type="text"
+          id="usuario"
+          name="usuario"
+          required
+          placeholder="Nombre de usuario"
+        />
+
+        <label for="contrasena">Contraseña:</label>
+        <input
+          type="password"
+          id="contrasena"
+          name="contrasena"
+          required
+          placeholder="Contraseña"
+        />
+
+        <input type="submit" value="Iniciar Sesión" />
+        <div id="errorMensaje" style="color: red; margin-top: 10px"></div>
+      </form>
+    </section>
+
+    <!-- Pie de pagina Footer-->
+    <footer class="footer">
+      <div class="overlay"></div>
+      <div class="footer-content">
+        <p class="frase">Museo Municipal De El Pogreso, Yoro</p>
+        <img
+          src="Imagenes/Encabezado/LogoMuni.png"
+          alt="Escudo de El Progreso"
+          class="escudo"
+        />
+        <p class="copy">
+          © Copyright 2025 Museo Municipal De El Progreso, Yoro. Todos los
+          derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Limpiar mensajes y bordes previos
+          document.getElementById("errorMensaje").textContent = "";
+          document.getElementById("usuario").style.borderColor = "";
+          document.getElementById("contrasena").style.borderColor = "";
+
+          const usuario = document.getElementById("usuario").value.trim();
+          const contrasena = document.getElementById("contrasena").value.trim();
+
+          if (!usuario || !contrasena) {
+            if (!usuario)
+              document.getElementById("usuario").style.borderColor = "red";
+            if (!contrasena)
+              document.getElementById("contrasena").style.borderColor = "red";
+            document.getElementById("errorMensaje").textContent =
+              "Por favor llena todos los campos.";
+            return;
+          }
+
+          const data = new FormData();
+          data.append("usuario", usuario);
+          data.append("contrasena", contrasena);
+
+          fetch("PHP/login.php", {
+            method: "POST",
+            body: data,
+          })
+            .then((response) => response.json())
+            .then((res) => {
+              if (res.exito) {
+                window.location.href = res.redireccion;
+              } else {
+                document.getElementById("errorMensaje").textContent =
+                  res.mensaje;
+                if (res.errorCampo === "usuario") {
+                  document.getElementById("usuario").style.borderColor = "red";
+                } else if (res.errorCampo === "contrasena") {
+                  document.getElementById("contrasena").style.borderColor =
+                    "red";
+                }
+              }
+            })
+            .catch((err) => {
+              console.error("Error en la petición:", err);
+            });
+        });
+    </script>
+  </body>
+</html>

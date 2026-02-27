@@ -1,0 +1,48 @@
+.ver-inscritos-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background-color: #fff8e1;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ver-inscritos-container h2 {
+  color: #f57c00;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ver-inscritos-container p {
+  font-size: 16px;
+  color: #444;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.ver-inscritos-container .no-inscritos {
+  text-align: center;
+  font-size: 18px;
+  color: #e64a19;
+  padding: 20px;
+  border: 2px dashed #ffcc80;
+  background-color: #fff3e0;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.boton-volver {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
+  background-color: #f57c00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-volver:hover {
+  background-color: #ef6c00;
+}

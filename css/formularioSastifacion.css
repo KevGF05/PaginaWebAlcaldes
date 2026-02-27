@@ -1,0 +1,69 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff8e1;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.encuesta-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff3e0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #f57c00;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  color: #f57c00;
+}
+
+.estrellas label {
+  font-size: 24px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1.5px solid #ffa726;
+  background: #fffbe6;
+}
+
+button {
+  background-color: #f9a825;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #fbc02d;
+}
