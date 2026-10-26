@@ -8,6 +8,12 @@ require 'PHPMailer-master/src/SMTP.php';
 
 include 'PHP/config.php';
 
+// Credenciales de Gmail fuera del repositorio (ver PHP/mail_config.example.php)
+if (!file_exists('PHP/mail_config.php')) {
+    die("Falta PHP/mail_config.php. Copia PHP/mail_config.example.php y agrega tus datos.");
+}
+$mailConfig = require 'PHP/mail_config.php';
+
 // Obtener correos de la tabla
 $sql = "SELECT email FROM inscripciones_eventos WHERE email IS NOT NULL AND email != ''";
 $resultado = $conn->query($sql);
@@ -23,13 +29,13 @@ if ($resultado->num_rows > 0) {
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'kevingf1997@gmail.com';
-                $mail->Password   = 'ayxhaddyfovnouux'; // Clave de aplicación de Gmail
+                $mail->Username   = $mailConfig['usuario'];
+                $mail->Password   = $mailConfig['clave']; // Clave de aplicación de Gmail
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port       = 587;
 
                 // Remitente (debe coincidir con la cuenta Gmail usada)
-                $mail->setFrom('kevingf1997@gmail.com', 'Museo Alcaldes');
+                $mail->setFrom($mailConfig['usuario'], 'Museo Alcaldes');
 
                 // Destinatario
                 $mail->addAddress($correo);
@@ -37,7 +43,7 @@ if ($resultado->num_rows > 0) {
                 // Contenido del correo
                 $mail->isHTML(false);
                 $mail->Subject = 'Encuesta de Satisfacción del Evento';
-                $mail->Body    = "Hola,\n\nGracias por participar en nuestro evento. Completa la encuesta en:\nhttp://192.168.1.5/PaginaWebAlcaldes8725/PaginaWebAlcaldes/formulario_satisfaccion.php\n\n¡Gracias!";
+                $mail->Body    = "Hola,\n\nGracias por participar en nuestro evento. Completa la encuesta en:\n{$mailConfig['url_encuesta']}\n\n¡Gracias!";
 
                 $mail->send();
                 echo "Correo enviado a: $correo<br>";
@@ -50,5 +56,5 @@ if ($resultado->num_rows > 0) {
     echo "No se encontraron correos en la base de datos.";
 }
 
-$conexion->close();
+$conn->close();
 ?>

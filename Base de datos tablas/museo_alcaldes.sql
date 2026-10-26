@@ -127,14 +127,14 @@ CREATE TABLE `inscripciones_eventos` (
 -- --------------------------------------------------------
 
 
-CREATE TABLE 'respuestas_satisfaccion' (
-  'id' INT AUTO_INCREMENT PRIMARY KEY,
-  'evento_id' INT NOT NULL,
-  'calificacion' INT NOT NULL,
-  'comentarios' TEXT,
-  'mejoras' TEXT,
-  'volver' VARCHAR(20),
-  'fecha' TIMESTAMP DEFAULT current_timestamp()
+CREATE TABLE `respuestas_satisfaccion` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `evento_id` INT NOT NULL,
+  `calificacion` INT NOT NULL,
+  `comentarios` TEXT,
+  `mejoras` TEXT,
+  `volver` VARCHAR(20),
+  `fecha` TIMESTAMP DEFAULT current_timestamp()
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -170,7 +170,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasena`, `rol`, `fecha_registro`) VALUES
-(1, 'admin', 'adminpc123@gmail.com', 'admin123', 'admin', '2025-06-23 21:13:11');
+(1, 'admin', 'adminpc123@gmail.com', '$2y$10$ZXDWEtyh2YrlA9claXz7jOCs6Rr1plWDOe.0km82oC7BvwDXKVNvu', 'admin', '2025-06-23 21:13:11');
 
 --
 -- Índices para tablas volcadas
