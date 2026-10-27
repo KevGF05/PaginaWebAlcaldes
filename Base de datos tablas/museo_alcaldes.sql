@@ -34,7 +34,9 @@ CREATE TABLE `alcaldes` (
   `frase` text DEFAULT NULL,
   `periodo` varchar(100) DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
-  `orden` int(11) DEFAULT 0
+  `orden` int(11) DEFAULT 0,
+  `es_actual` tinyint(1) NOT NULL DEFAULT 0,
+  `archivo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -293,6 +295,29 @@ ALTER TABLE `inscripciones_eventos`
 ALTER TABLE `registros_eventos`
   ADD CONSTRAINT `registros_eventos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
   ADD CONSTRAINT `registros_eventos_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`);
+--
+-- Estructura de tabla para la tabla `res_alcaldes`
+-- Resumen corto que se muestra en la tarjeta de cada alcalde
+--
+CREATE TABLE `res_alcaldes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_alcalde` int(11) NOT NULL,
+  `resumen` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_alcalde` (`id_alcalde`),
+  CONSTRAINT `res_alcaldes_ibfk_1` FOREIGN KEY (`id_alcalde`) REFERENCES `alcaldes` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Página de biografía de cada alcalde (carpeta alcaldes_data)
+--
+UPDATE `alcaldes` SET `archivo` = 'alcaldeGuillermoJBrain.php' WHERE `id` = 8;
+UPDATE `alcaldes` SET `archivo` = 'don_ramon_lleset.php' WHERE `id` = 9;
+UPDATE `alcaldes` SET `archivo` = 'don_jose_melecio_velasquez.php' WHERE `id` = 10;
+UPDATE `alcaldes` SET `archivo` = 'juan_blas_tobias.php' WHERE `id` = 11;
+UPDATE `alcaldes` SET `archivo` = 'don_manuel_ismael_moya_amaya.php' WHERE `id` = 12;
+UPDATE `alcaldes` SET `archivo` = 'don_raimundo_panchame.php' WHERE `id` = 13;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

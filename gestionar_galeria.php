@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario_id']) || $_SESSION['rol'] !== 'admin') {
-    header("Location: iniciar_sesion.html");
+    header("Location: inicioSecion.html");
     exit();
 }
 
@@ -26,9 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['agregar_imagen'])) {
         // Guarda solo la ruta relativa en la base de datos
         $archivo_imagen = "$categoria/" . $nombre_imagen;
 
-        $sql = "INSERT INTO galeria (titulo, descripcion, archivo_imagen) 
-                VALUES ('$titulo', '$descripcion', '$archivo_imagen')";
-        mysqli_query($conn, $sql);
+        $stmt = mysqli_prepare($conn, "INSERT INTO galeria (titulo, descripcion, archivo_imagen) VALUES (?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "sss", $titulo, $descripcion, $archivo_imagen);
+        mysqli_stmt_execute($stmt);
     } else {
         echo "<p style='color: red;'>❌ Error al subir la imagen.</p>";
     }
@@ -36,10 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['agregar_imagen'])) {
 
 
 if (isset($_GET['eliminar'])) {
-    $id = $_GET['eliminar'];
+    $id = intval($_GET['eliminar']);
     $img = mysqli_fetch_assoc(mysqli_query($conn, "SELECT archivo_imagen FROM galeria WHERE id = $id"));
-    if ($img && file_exists($img['archivo_imagen'])) {
-        unlink($img['archivo_imagen']);
+    // En la BD se guarda la ruta relativa a Imagenes/Galeria/
+    if ($img && file_exists("Imagenes/Galeria/" . $img['archivo_imagen'])) {
+        unlink("Imagenes/Galeria/" . $img['archivo_imagen']);
     }
     mysqli_query($conn, "DELETE FROM galeria WHERE id = $id");
 }
@@ -85,9 +86,9 @@ $resultado = mysqli_query($conn, "SELECT * FROM galeria ORDER BY fecha_subida DE
             </tr>
             <?php while ($fila = mysqli_fetch_assoc($resultado)) : ?>
                 <tr>
-                    <td><img src="<?php echo $fila['archivo_imagen']; ?>" width="80"></td>
-                    <td><?php echo $fila['titulo']; ?></td>
-                    <td><?php echo $fila['descripcion']; ?></td>
+                    <td><img src="Imagenes/Galeria/<?php echo htmlspecialchars($fila['archivo_imagen']); ?>" width="80"></td>
+                    <td><?php echo htmlspecialchars($fila['titulo']); ?></td>
+                    <td><?php echo htmlspecialchars($fila['descripcion']); ?></td>
                     <td><a href="?eliminar=<?php echo $fila['id']; ?>" onclick="return confirm('¿Eliminar imagen?')">Eliminar</a></td>
                 </tr>
             <?php endwhile; ?>
